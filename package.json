@@ -1,7 +1,15 @@
 {
   "dependencies": {
     "console.table": "^0.10.0",
+    "dotenv": "^16.0.3",
     "inquirer": "^8.2.4",
-    "mysql2": "^3.3.0"
+    "mysql2": "^3.3.0",
+    "seed": "^0.4.4"
+  },
+  "devDependencies": {
+    "console-table-printer": "^2.11.1"
+  },
+  "scripts": {
+    "start": "node server.js"
   }
 }
