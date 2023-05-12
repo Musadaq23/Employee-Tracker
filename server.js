@@ -214,10 +214,9 @@ async function connectToDB(queryType) {
   } catch (err) {
     console.log(err);
   }
-
-  // Prompt user to select an action
-  async function promptUser() {
-    try {
+  
+  async function start() {
+    while (true) {
       const { action } = await inq.prompt([
         {
           type: "list",
@@ -235,15 +234,42 @@ async function connectToDB(queryType) {
           ],
         },
       ]);
-
-      if (action !== "Exit") {
-        await connectToDB(action);
-        await promptUser();
+  
+      switch (action) {
+        case "View All Departments":
+          await connectToDB("View All Departments");
+          break;
+  
+        case "View All Roles":
+          await connectToDB("View All Roles");
+          break;
+  
+        case "View All Employees":
+          await connectToDB("View All Employees");
+          break;
+  
+        case "Add a Department":
+          await connectToDB("Add a Department");
+          break;
+  
+        case "Add a Role":
+          await connectToDB("Add a Role");
+          break;
+  
+        case "Add an Employee":
+          await connectToDB("Add an Employee");
+          break;
+  
+        case "Update an Employee Role":
+          await connectToDB("Update an Employee Role");
+          break;
+  
+        case "Exit":
+          return;
       }
-    } catch (err) {
-      console.log(err);
+      
     }
 }
-promptUser();
+start();
 }
-
+connectToDB();
