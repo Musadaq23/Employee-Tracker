@@ -214,7 +214,7 @@ async function connectToDB(queryType) {
   } catch (err) {
     console.log(err);
   }
-  
+}
   async function start() {
     while (true) {
       const { action } = await inq.prompt([
@@ -266,10 +266,9 @@ async function connectToDB(queryType) {
   
         case "Exit":
           return;
-      }
-      
+      } 
     }
 }
 start();
-}
-connectToDB();
+
+
